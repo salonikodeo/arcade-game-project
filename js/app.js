@@ -2,13 +2,10 @@
 class Enemy {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    constructor(x,y,speed) {
+    constructor(x,y) {
         // set position for enemy
         this.x = x;
         this.y = y;
-
-        //set speed for enemy
-        this.speed = speed;
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -61,8 +58,11 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
-
+let enemy1 = new Enemy(-20,60);
+let enemy2 = new Enemy(-50,145);
+let enemy3 = new Enemy(-100,230);
+let allEnemies = [enemy1,enemy2,enemy3];
+let player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
