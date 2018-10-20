@@ -6,6 +6,7 @@ class Enemy {
         // set position for enemy
         this.x = x;
         this.y = y;
+        this.speed = 300;
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -15,8 +16,8 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        this.x +=1;
-        if(this.x === 500){
+        this.x = this.x + (this.speed * dt);
+        if(this.x > 500){
             this.x = -100;
         }
     // You should multiply any movement by the dt parameter
