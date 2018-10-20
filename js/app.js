@@ -79,11 +79,20 @@ class Player {
                 if(this.y>385) {
                     this.y = 385;
                 }
+                if(this.y === -40) {
+                    setTimeout(() =>
+                        this.reset(),300);
+                }   
                 break;
             }
         }
     }
 
+    //reset the move of player to initial position
+    reset() {
+        this.x = 0;
+        this.y = 300;
+    }    
 }
 
 // Now instantiate your objects.
