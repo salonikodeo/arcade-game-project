@@ -44,14 +44,31 @@ class Player {
 
     }
 
-    //Draw the playerr on the screen
+    //Draw the player on the screen
     render() {
         ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
     }
 
     //Handle the input provided by the user
-    handleInput() {
-
+    handleInput(inputKey) {
+        switch(inputKey) {
+            case 'left' : {
+                this.x -= 100;
+                break;
+            };
+            case 'right' : {
+                this.x += 100;
+                break;
+            };
+            case 'up' : {
+                this.y -= 85;
+                break;
+            };
+            case 'down' : {
+                this.y += 85;
+                break;
+            }
+        }
     }
 }
 
