@@ -15,6 +15,10 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
+        this.x +=1;
+        if(this.x === 500){
+            this.x = -100;
+        }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
