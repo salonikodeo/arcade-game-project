@@ -18,6 +18,7 @@ class Enemy {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
     }
 
     // Draw the enemy on the screen, required method for game
@@ -54,22 +55,35 @@ class Player {
         switch(inputKey) {
             case 'left' : {
                 this.x -= 100;
+                if(this.x < 0){
+                    this.x = 0;
+                }
                 break;
             };
             case 'right' : {
                 this.x += 100;
+                if(this.x > 400) {
+                    this.x = 400;
+                }
                 break;
             };
             case 'up' : {
                 this.y -= 85;
+                if(this.y < -40) {
+                    this.y = -40;
+                }
                 break;
             };
             case 'down' : {
                 this.y += 85;
+                if(this.y>385) {
+                    this.y = 385;
+                }
                 break;
             }
         }
     }
+
 }
 
 // Now instantiate your objects.
