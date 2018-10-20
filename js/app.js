@@ -76,17 +76,17 @@ class Player {
                 if(this.y < -40) {
                     this.y = -40;
                 }
+                if(this.y === -40) {
+                    setTimeout(() =>
+                        this.reset(),300);
+                }  
                 break;
             };
             case 'down' : {
                 this.y += 85;
                 if(this.y>385) {
                     this.y = 385;
-                }
-                if(this.y === -40) {
-                    setTimeout(() =>
-                        this.reset(),300);
-                }   
+                } 
                 break;
             }
         }
