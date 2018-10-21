@@ -7,8 +7,8 @@ class Enemy {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.width = 101;
-        this.height = 171;
+        this.width = 50;
+        this.height = 50;
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -22,6 +22,7 @@ class Enemy {
         if(this.x > 500){
             this.x = -100;
         }
+        this.handleCollision();
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
@@ -32,6 +33,19 @@ class Enemy {
     render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+
+    //handle collision with the player
+	handleCollision() {
+	    {
+	        if (this.x < player.x + player.width &&
+	           this.x + this.width > player.x &&
+	           this.y < player.y + player.height &&
+	           this.height + this.y > player.y) {
+	            // collision detected!
+	            player.reset();
+	        }
+	    }
+	}
 }
 
 // Now write your own player class
@@ -42,8 +56,8 @@ class Player {
         //set initial position of player
         this.x = 0;
         this.y = 300;
-        this.width = 101;
-        this.height = 171;
+        this.width = 50;
+        this.height = 50;
         this.noOfCross = 0;
 
         //the image/sprite for our player
@@ -52,7 +66,7 @@ class Player {
 
     //Update the player's position
     update(dt) {
-        handleCollsion();
+        
     }
 
     //Draw the player on the screen
@@ -119,18 +133,6 @@ let enemy3 = new Enemy(-100,230,550);
 let allEnemies = [enemy1,enemy2,enemy3];
 let player = new Player();
 
-//handle collision with the player      
-function handleCollsion() { 
-    for(enemy of allEnemies) { 
-        if (enemy.x < player.x + player.width &&
-           enemy.x + enemy.width > player.x &&
-           enemy.y < player.y + player.height &&
-           enemy.height + enemy.y > player.y) {
-            // collision detected!
-            player.reset();
-        }
-    }
-}
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
