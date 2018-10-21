@@ -43,6 +43,7 @@ class Enemy {
 	           this.height + this.y > player.y) {
 	            // collision detected!
 	            player.reset();
+	            player.noOfCross--;
 	        }
 	    }
 	}
@@ -66,7 +67,7 @@ class Player {
 
     //Update the player's position
     update(dt) {
-        
+        document.body.querySelector('.showCrosses').textContent = `Number of Crosses : ${this.noOfCross}.`; 
     }
 
     //Draw the player on the screen
@@ -147,6 +148,6 @@ document.addEventListener('keyup', function(e) {
 });
 
 function win() {
-    
+    console.log("win");
 }
 
