@@ -68,9 +68,6 @@ class Player {
     //Update the player's position
     update(dt) {
         document.body.querySelector('.showCrosses').textContent = `Number of Crosses : ${this.noOfCross}.`;
-        if(this.noOfCross === 5) {
-            win();
-        }
     }
 
     //Draw the player on the screen
@@ -104,6 +101,9 @@ class Player {
                     this.noOfCross++; 
                     setTimeout(() =>
                         this.reset(),300);
+                    if(this.noOfCross === 5) {
+            			win();
+        			}
                 }  
                 break;
             };
