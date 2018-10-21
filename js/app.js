@@ -67,7 +67,10 @@ class Player {
 
     //Update the player's position
     update(dt) {
-        document.body.querySelector('.showCrosses').textContent = `Number of Crosses : ${this.noOfCross}.`; 
+        document.body.querySelector('.showCrosses').textContent = `Number of Crosses : ${this.noOfCross}.`;
+        if(this.noOfCross === 5) {
+            win();
+        }
     }
 
     //Draw the player on the screen
@@ -77,10 +80,6 @@ class Player {
 
     //Handle the input provided by the user
     handleInput(inputKey) {
-        if(this.noOfCross === 5) {
-            win();
-            
-        }
         switch(inputKey) {
             case 'left' : {
                 this.x -= 100;
@@ -148,6 +147,11 @@ document.addEventListener('keyup', function(e) {
 });
 
 function win() {
-    console.log("win");
+    swal({
+    	icon: "success",
+    	title: "You win",
+    }).then(() => {
+    	player.noOfCross = 0;
+    });
 }
 
