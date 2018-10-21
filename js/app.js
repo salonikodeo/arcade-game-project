@@ -44,6 +44,7 @@ class Player {
         this.y = 300;
         this.width = 101;
         this.height = 171;
+        this.noOfCross = 0;
 
         //the image/sprite for our player
         this.sprite = 'images/char-princess-girl.png';
@@ -61,6 +62,10 @@ class Player {
 
     //Handle the input provided by the user
     handleInput(inputKey) {
+        if(this.noOfCross === 5) {
+            win();
+            
+        }
         switch(inputKey) {
             case 'left' : {
                 this.x -= 100;
@@ -82,6 +87,7 @@ class Player {
                     this.y = -40;
                 }
                 if(this.y === -40) {
+                    this.noOfCross++; 
                     setTimeout(() =>
                         this.reset(),300);
                 }  
@@ -137,3 +143,8 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+function win() {
+    
+}
+
